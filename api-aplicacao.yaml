@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: meureplicaset
+spec: 
+  replicas: 10
+  selector:
+    matchLabels:
+      app: api-aplicacao
+  template:
+    metadata:
+      labels:
+        app: api-aplicacao
+    spec:
+      containers:
+        - name: site
+          image: jordanonatoo/api-conversao
+          ports:
+          - containerPort: 80
